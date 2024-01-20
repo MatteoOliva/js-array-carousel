@@ -1,5 +1,6 @@
 const slidesContainerElement = document.getElementById('slides');
-
+const buttonUP = document.getElementById('up');
+const buttonDown = document.getElementById('down');
 
 
 const slides = ['01.webp', '02.webp', '03.webp', '04.webp', '05.webp'];
@@ -8,7 +9,7 @@ const slides = ['01.webp', '02.webp', '03.webp', '04.webp', '05.webp'];
 let currentImage = 0;
 
 for( let i = 0; i < slides.length; i++) {
-    
+
     if(i == currentImage)
     {
       slidesContainerElement.innerHTML += `<img src="img/${slides[i]}" alt="" class="slide active"></img>`
@@ -18,4 +19,18 @@ for( let i = 0; i < slides.length; i++) {
     }
 }
 
+const slidesElements = document.getElementsByClassName('slide');
+buttonDown.addEventListener('click', function()
+{
+    slidesElements[currentImage].classList.remove('active');
+    slidesElements[currentImage + 1].classList.add('active');
+    currentImage++
+})
+
+buttonUP.addEventListener('click', function()
+{
+    slidesElements[currentImage].classList.remove('active');
+    slidesElements[currentImage - 1].classList.add('active');
+    currentImage--
+})
 

@@ -37,10 +37,9 @@
 }
 
 #down {
-    margin-top: 7px;
-
-}
-#up {
     bottom: 0;
     margin-bottom: 7px;  
+}
+#up {
+    margin-top: 7px;
 }

@@ -13,13 +13,20 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-img {
+.slides {
+    width: 100%;
+    height: 100%;
+}
+.slide {
 
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: none;
 }
-
+.active {
+    display: block;
+}
 .arrow {
     position: absolute;
     transform: translate(-50, 0);

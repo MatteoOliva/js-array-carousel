@@ -23,14 +23,25 @@ const slidesElements = document.getElementsByClassName('slide');
 buttonDown.addEventListener('click', function()
 {
     slidesElements[currentImage].classList.remove('active');
+    if (currentImage == 4) {
+        currentImage = -1;
+    }
+
     slidesElements[currentImage + 1].classList.add('active');
     currentImage++
+    console.log(currentImage)
+
+
 })
 
 buttonUP.addEventListener('click', function()
 {
     slidesElements[currentImage].classList.remove('active');
+    if (currentImage == 0) {
+        currentImage = slidesElements.length;
+    }
     slidesElements[currentImage - 1].classList.add('active');
     currentImage--
+    console.log(currentImage)
 })
 

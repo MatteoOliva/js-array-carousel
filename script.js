@@ -54,12 +54,15 @@ buttonUP.addEventListener('click', function()
 
 // MILESTONE 1
 
-const clock = setInterval(slideInterval, 1000);
+const clock = setInterval(slideInterval, 3000);
 function slideInterval() {
     if( currentImage < 4  ) {
     
     slidesElements[currentImage].classList.remove('active');
     currentImage ++
     slidesElements[currentImage].classList.add('active');
-} else { slidesElements[currentImage].classList.remove('active'); currentImage = 0; slidesElements[currentImage].classList.add('active')}
+} else { 
+    slidesElements[currentImage].classList.remove('active');
+    currentImage = 0;
+    slidesElements[currentImage].classList.add('active')}
 }

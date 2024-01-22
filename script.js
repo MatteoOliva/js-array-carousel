@@ -60,7 +60,5 @@ function slideInterval() {
     
     slidesElements[currentImage].classList.remove('active');
     slidesElements[currentImage].classList.add('active');
-    
-    
 }
 }

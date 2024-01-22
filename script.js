@@ -10,16 +10,23 @@ let currentImage = 0;
 
 for( let i = 0; i < slides.length; i++) {
 
-    if(i == currentImage)
-    {
-      slidesContainerElement.innerHTML += `<img src="img/${slides[i]}" alt="" class="slide active"></img>`
-    }
-    else{
-        slidesContainerElement.innerHTML += `<img src="img/${slides[i]}" alt="" class="slide"></img>`
-    }
-}
+    // if(i == currentImage)
+    // {
+    //   slidesContainerElement.innerHTML += `<img src="img/${slides[i]}" alt="" class="slide active"></img>`
+    // }
+    // else{
+    //     slidesContainerElement.innerHTML += `<img src="img/${slides[i]}" alt="" class="slide"></img>`
+    // }
+    
+    
 
+   let active = i == currentImage ? 'active' : ''
+
+    slidesContainerElement.innerHTML += `<img src="img/${slides[i]}" alt="" class="slide ${active} "></img>`
+
+}
 const slidesElements = document.getElementsByClassName('slide');
+
 buttonDown.addEventListener('click', function()
 {
     slidesElements[currentImage].classList.remove('active');
@@ -45,3 +52,15 @@ buttonUP.addEventListener('click', function()
     console.log(currentImage)
 })
 
+// MILESTONE 1
+
+const clock = setInterval(slideInterval, 1000);
+function slideInterval() {
+    for( currentImage = 0; currentImage < 5; currentImage ++) {
+    
+    slidesElements[currentImage].classList.remove('active');
+    slidesElements[currentImage].classList.add('active');
+    
+    
+}
+}

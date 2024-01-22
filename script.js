@@ -56,9 +56,10 @@ buttonUP.addEventListener('click', function()
 
 const clock = setInterval(slideInterval, 1000);
 function slideInterval() {
-    for( currentImage = 0; currentImage < 5; currentImage ++) {
+    if( currentImage < 4  ) {
     
     slidesElements[currentImage].classList.remove('active');
+    currentImage ++
     slidesElements[currentImage].classList.add('active');
-}
+} else { slidesElements[currentImage].classList.remove('active'); currentImage = 0; slidesElements[currentImage].classList.add('active')}
 }

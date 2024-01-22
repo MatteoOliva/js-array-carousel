@@ -30,12 +30,12 @@ const slidesElements = document.getElementsByClassName('slide');
 buttonDown.addEventListener('click', function()
 {
     slidesElements[currentImage].classList.remove('active');
-    if (currentImage == 4) {
+    if (currentImage == slidesElements.length - 1) {
         currentImage = -1;
     }
-
-    slidesElements[currentImage + 1].classList.add('active');
     currentImage++
+    slidesElements[currentImage].classList.add('active');
+    
     console.log(currentImage)
 
 
@@ -47,22 +47,36 @@ buttonUP.addEventListener('click', function()
     if (currentImage == 0) {
         currentImage = slidesElements.length;
     }
-    slidesElements[currentImage - 1].classList.add('active');
     currentImage--
+    slidesElements[currentImage].classList.add('active');
+    
     console.log(currentImage)
 })
 
 // MILESTONE 1
 
-const clock = setInterval(slideInterval, 3000);
+let clock = setInterval(slideInterval, 1000);
 function slideInterval() {
-    if( currentImage < 4  ) {
-    
     slidesElements[currentImage].classList.remove('active');
-    currentImage ++
+    if (currentImage == slidesElements.length -1) {
+        currentImage = -1;
+    }
+    currentImage++
     slidesElements[currentImage].classList.add('active');
-} else { 
-    slidesElements[currentImage].classList.remove('active');
-    currentImage = 0;
-    slidesElements[currentImage].classList.add('active')}
+    
+    console.log(currentImage)
 }
+
+// BONUS 2
+
+
+slidesContainerElement.addEventListener("mouseover", function()
+    { 
+        clearInterval(clock);
+    })
+    
+slidesContainerElement.addEventListener("mouseout", function()
+{ 
+    clock = setInterval(slideInterval, 1000);
+    
+})
